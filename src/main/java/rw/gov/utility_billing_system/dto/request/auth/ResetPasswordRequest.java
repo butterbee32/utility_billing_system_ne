@@ -1,0 +1,25 @@
+package rw.gov.utility_billing_system.dto.request.auth;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
+import rw.gov.utility_billing_system.utility.validation.ValidEmail;
+import rw.gov.utility_billing_system.utility.validation.ValidPassword;
+
+@Getter
+@Setter
+public class ResetPasswordRequest {
+
+    @NotBlank(message = "Email is required")
+    @ValidEmail
+    private String email;
+
+    @NotBlank(message = "OTP code is required")
+    @Size(min = 6, max = 6, message = "OTP must be 6 digits")
+    private String otpCode;
+
+    @NotBlank(message = "New password is required")
+    @ValidPassword
+    private String newPassword;
+}

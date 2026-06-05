@@ -1,0 +1,72 @@
+spring.application.name=utility-billing-system
+
+# PostgreSQL
+spring.datasource.url=jdbc:postgresql://localhost:5432/utility_billing_db
+spring.datasource.username=postgres
+spring.datasource.password=your_db_password
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# JPA
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.defer-datasource-initialization=true
+spring.sql.init.mode=never
+
+# File upload
+spring.servlet.multipart.max-file-size=10MB
+spring.servlet.multipart.max-request-size=10MB
+app.upload.dir=uploads
+
+# JWT
+app.jwt.secret=change-me-to-a-long-random-secret
+app.jwt.expiration-ms=172800000
+
+# Admin seed
+app.admin.email=admin@wasac.rw
+app.admin.password=change-me
+app.admin.full-names=System Administrator
+app.admin.phone=+250788000000
+
+# OTP
+app.otp.expiration-minutes=5
+app.otp.max-attempts=3
+app.otp.max-requests-per-window=3
+app.otp.request-window-minutes=10
+
+# Security
+app.security.max-failed-attempts=5
+app.security.lock-duration-minutes=15
+
+# Email verification
+app.email-verification.expiration-hours=24
+
+# Mail (Gmail SMTP for OTP and notifications)
+app.mail.from-name=WASAC/REG Billing System
+app.mail.login-url=http://localhost:8080/swagger-ui.html
+app.mail.support-email=support@wasac.rw
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=your-email@gmail.com
+spring.mail.password=your-app-password
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.properties.mail.smtp.starttls.required=true
+
+# Swagger
+springdoc.api-docs.path=/api-docs
+springdoc.swagger-ui.path=/swagger-ui.html
+springdoc.swagger-ui.tagsSorter=alpha
+springdoc.swagger-ui.operationsSorter=alpha
+springdoc.pageable.default-page-size=20
+springdoc.pageable.max-page-size=100
+
+# Server
+server.port=8080
+
+# Actuator
+management.endpoints.web.exposure.include=health,info,metrics
+management.endpoint.health.show-details=when_authorized
+management.health.mail.enabled=false
+management.info.env.enabled=true
